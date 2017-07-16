@@ -1,0 +1,193 @@
+body{
+    background: linear-gradient(#00C4D5, #D1D1D1);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+    text-align: center;
+}
+h1,h2,h3,h4,p{
+    margin: 0;
+}
+
+/*Header*/
+#header{
+    height: 60px;
+    text-align: center;
+    padding-top: 20px;
+}
+#name{
+    line-height: 60px;
+}
+#left-arrow, #right-arrow{
+    padding: 0 5px;
+}
+#left-arrow, #right-arrow:hover{
+    cursor: pointer;
+}
+
+/*Date*/
+#dateselection{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#date{
+    padding: 0 20px;
+}
+
+/*Threads*/
+#tagcontainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.tag{
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.2s ease;
+}
+.tag-disabled{
+    opacity: 0.3;
+}
+.tag:hover{
+    cursor: pointer;
+    background: rgba(0,0,0,0.3) !important;
+}
+
+/*News*/
+#newscontainer{
+    padding-top: 20px;
+    /*margin:0 10vw;*/
+    max-width: 80vw;
+    margin: 0 auto;
+}
+#newscontainer * {
+    box-sizing: border-box;
+}
+.news-block{
+    padding: 5px;
+    width: 300px;
+    float:left;
+}
+.news-block:hover{
+    cursor: pointer;
+}
+#news-container:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.news-background{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.headline{
+    padding: 10px;
+}
+.content{
+    padding: 10px;
+    padding-top:0;
+}
+.sum, .url,.key{
+    display: none;
+}
+
+/*Footer*/
+#footer{
+    position:fixed;
+    background: dimgray;
+    height: 80px;
+    bottom: 0;
+    width: 100%;
+}
+
+/*Popup*/
+#popup{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    top:0;
+    z-index: 2;
+    display: none;
+    background: rgba(0,0,0,0.2);
+}
+#popup-content{
+    width: 30vw;
+    min-width: 200px;
+    margin: 0 auto;
+    border-radius: 5px;
+    max-height: 100vh;
+    overflow: auto;
+}
+#popup-content:hover{
+    cursor: pointer;
+}
+.main-content{
+    text-align:center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.main-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+#popup-title{
+    padding: 20px;
+}
+#popup-sum{
+    padding: 20px;
+    padding-top: 0;
+}
+#popup-link{
+    background: rgba(255,255,255,0.5) ;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+}
+
+/*Colors*/
+.tech{
+    background: #ffae00;
+}
+.science{
+    background: #11d10a;
+}
+.world{
+    background: #ce7509;
+}
+.politics{
+    background: #09a6ce;
+}
+.music{
+    background: #ff09ce;
+}
+.movies{
+    background: #ce098c;
+}
+.tv{
+    background: #09ce8f;
+}
+.money{
+    background: #7fce09;
+}
+.sports{
+    background: #ce0909;
+}
