@@ -14,7 +14,13 @@ var selectedtags=[
     "money",
     "sports"
 ];
-var grid;
+var $grid;
+var layout = {
+    itemSelector: '.news-block',
+    columnWidth: 300,
+    percentPosition: true,
+    horizontalOrder: true
+};
 
 // Initialize Firebase
 var config = {
@@ -28,12 +34,7 @@ var config = {
 firebase.initializeApp(config);
 
 $(document).ready(function () {
-    $('#newscontainer').masonry({
-        itemSelector: '.news-block',
-        columnWidth: 300,
-        percentPosition: true,
-        horizontalOrder: true
-    });
+    $grid = $('#newscontainer').masonry(layout);
     fetchDate();
     setupDate();
     setupTags();
@@ -67,11 +68,10 @@ function fetchDate(){
                     str+='</p><p class="key">';
                     str+=key2;
                     str+='</p></div></div>';
-                    $("#newscontainer").append($(str));
+                    setupNews(str);
                 }
             }
         }
-        setupNews();
     });
 }
 function setupDate(){
@@ -90,21 +90,21 @@ function setupTags(){
     $(".tag").click(function(){
         if($(this).hasClass("tag-disabled")){
             $(this).removeClass("tag-disabled");
-            $("#newscontainer ."+$(this).text()).show();
+            $("#newscontainer ."+$(this).text()).parent().show();
         }
         else{
             $(this).addClass("tag-disabled");
-            $("#newscontainer ."+$(this).text()).hide();
+            $("#newscontainer ."+$(this).text()).parent().hide();
         }
         setupNews();
     });
 }
-function setupNews(){
-    $('#newscontainer').masonry({
-        itemSelector: '.news-block',
-        percentPosition: true,
-        horizontalOrder: true
-    });
+function setupNews(temp){
+    var elem = $(temp);
+    $grid.masonry()
+        .append( elem )
+        .masonry( 'appended', elem )
+        .masonry(layout);
     $('.news-block').click(function () {
         $("#popup").show();
         var c = $($(this).children()[0]).children();
